@@ -47,9 +47,11 @@ def add_entry():
     g.db.commit()
     return make_response("", 200)
 
-@app.route('/search')
-def search_entries():
-    return make_response(json.dumps([]), 200)
+@app.route('/search/<name>')
+def search_entries(name):
+    cur = g.db.execute('select * from phonebook WHERE surname LIKE "%{}%" order by id desc'.format(name))
+    entries = [dict(id=row[0], forename=row[1], surname=row[2], telephone=row[3], address=row[4]) for row in cur.fetchall()]
+    return make_response(json.dumps(entries), 200)
 
 if __name__ == '__main__':
     app.run()

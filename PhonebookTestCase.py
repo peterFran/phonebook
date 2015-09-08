@@ -12,7 +12,6 @@ class PhonebookTestCase(unittest.TestCase):
         phonebook.app.config['TESTING'] = True
         self.app = phonebook.app.test_client()
         phonebook.init_db()
-        self.app.get('/clear')
 
     def tearDown(self):
         os.close(self.db_fd)
@@ -40,7 +39,7 @@ class PhonebookTestCase(unittest.TestCase):
         post_result = self.app.post('/add', data=dict(
             forename='John',
             surname='Meckiffe',
-            telephone='07872124086',
+            telephone='07972124086',
             address='3 Wren Close, Winch',
         ), follow_redirects=True)
         assert post_result.data.decode('utf-8') == ""
@@ -51,9 +50,51 @@ class PhonebookTestCase(unittest.TestCase):
             address='3 Wren Close, Winch',
         ), follow_redirects=True)
         assert post_result.data.decode('utf-8') == ""
-        data = self.app.get('/search?meckiffe').data.decode('utf-8')
-        assert [{'forename': 'Peter', 'surname': 'Meckiffe', \
-                 'telephone': "07972124086", 'address': '3 Wren Close, Winch'}, ] == json.loads(data)
+        data = self.app.get('/search/Meckiffe').data.decode('utf-8')
+        assert [{'id':4,'forename': 'Peter', 'surname': 'Meckiffe', \
+                 'telephone': "07872124086", 'address': '3 Wren Close, Winch'}, \
+                {'id':3,'forename': 'John', 'surname': 'Meckiffe', \
+                 'telephone': "07972124086", 'address': '3 Wren Close, Winch'}] == json.loads(data)
+
+    def test_search_with_case_insensitivity_and_shortened_word(self):
+        post_result = self.app.post('/add', data=dict(
+            forename='Peter',
+            surname='Hitch',
+            telephone='07872124086',
+            address='3 Wren Close, Winch',
+        ), follow_redirects=True)
+        assert post_result.data.decode('utf-8') == ""
+        post_result = self.app.post('/add', data=dict(
+            forename='Peter',
+            surname='Norris',
+            telephone='07872124086',
+            address='3 Wren Close, Winch',
+        ), follow_redirects=True)
+        assert post_result.data.decode('utf-8') == ""
+        post_result = self.app.post('/add', data=dict(
+            forename='John',
+            surname='Meckiffe',
+            telephone='07972124086',
+            address='3 Wren Close, Winch',
+        ), follow_redirects=True)
+        assert post_result.data.decode('utf-8') == ""
+        post_result = self.app.post('/add', data=dict(
+            forename='Peter',
+            surname='Meckiffe',
+            telephone='07872124086',
+            address='3 Wren Close, Winch',
+        ), follow_redirects=True)
+        assert post_result.data.decode('utf-8') == ""
+        data = self.app.get('/search/meckiffe').data.decode('utf-8')
+        assert [{'id':4,'forename': 'Peter', 'surname': 'Meckiffe', \
+                 'telephone': "07872124086", 'address': '3 Wren Close, Winch'}, \
+                {'id':3,'forename': 'John', 'surname': 'Meckiffe', \
+                 'telephone': "07972124086", 'address': '3 Wren Close, Winch'}] == json.loads(data)
+        data = self.app.get('/search/ckiff').data.decode('utf-8')
+        assert [{'id':4,'forename': 'Peter', 'surname': 'Meckiffe', \
+                 'telephone': "07872124086", 'address': '3 Wren Close, Winch'}, \
+                {'id':3,'forename': 'John', 'surname': 'Meckiffe', \
+                 'telephone': "07972124086", 'address': '3 Wren Close, Winch'}] == json.loads(data)
 
     def test_add_entry(self):
         post_result = self.app.post('/add', data=dict(
