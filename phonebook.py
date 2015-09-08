@@ -6,7 +6,7 @@ from flask import Flask, g, jsonify, request, flash, make_response
 import json
 
 # configuration
-DATABASE = 'phonebook.db'
+DATABASE = '/tmp/phonebook.db'
 DEBUG = True
 SECRET_KEY = 'development key'
 USERNAME = 'admin'
@@ -42,8 +42,12 @@ def show_entries():
 
 @app.route('/add', methods=['POST'])
 def add_entry():
+    if 'address' in request.form:
+        addr = request.form['address']
+    else:
+        addr = ""
     g.db.execute('insert into phonebook (forename, surname, telephone, address) values (?, ?, ?, ?)',
-                 [request.form['forename'], request.form['surname'], request.form['telephone'], request.form['address']])
+                 [request.form['forename'], request.form['surname'], request.form['telephone'], addr])
     g.db.commit()
     return make_response("", 200)
 
@@ -55,3 +59,4 @@ def search_entries(name):
 
 if __name__ == '__main__':
     app.run()
+    init_db()

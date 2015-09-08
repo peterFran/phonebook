@@ -133,6 +133,33 @@ class PhonebookTestCase(unittest.TestCase):
         assert (confirmation[0]['id'] == 2 and confirmation[1]['id'] == 1) or (
         confirmation[1]['id'] == 2 and confirmation[0]['id'] == 1)
 
+    def test_uniqueness(self):
+        post_result = self.app.post('/add', data=dict(
+            forename='Peter',
+            surname='Meckiffe',
+            telephone='07872124086',
+        ), follow_redirects=True)
+        assert post_result.data.decode('utf-8') == ""
+        post_result = self.app.post('/add', data=dict(
+            forename='Peter',
+            surname='Meckiffe',
+            telephone='07872124086',
+        ), follow_redirects=True)
+        assert post_result.data.decode('utf-8') == ""
+        assert len(json.loads(self.app.get('/').data.decode('utf-8'))) == 1
+
+    def test_optional_address(self):
+        post_result = self.app.post('/add', data=dict(
+            forename='Peter',
+            surname='Meckiffe',
+            telephone='07872124086',
+        ), follow_redirects=True)
+        assert post_result.data.decode('utf-8') == ""
+        confirmation = json.loads(self.app.get('/').data.decode('utf-8'))[0]
+        assert confirmation['forename'] == 'Peter'
+        assert confirmation['surname'] == 'Meckiffe'
+        assert confirmation['telephone'] == '07872124086'
+        assert confirmation['address'] == ''
 
 if __name__ == '__main__':
     unittest.main()
