@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1c9c474a-dcae-4673-a40f-4de58ebdd384" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PhonebookTestCase.py" afterPath="$PROJECT_DIR$/PhonebookTestCase.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phonebook.db" afterPath="$PROJECT_DIR$/phonebook.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phonebook.py" afterPath="$PROJECT_DIR$/phonebook.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -29,13 +28,19 @@
       <file leaf-file-name="PhonebookTestCase.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PhonebookTestCase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6626506">
-              <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.60181">
+              <caret line="286" column="62" selection-start-line="286" selection-start-column="62" selection-end-line="286" selection-end-column="62" />
               <folding>
                 <element signature="e#29#38#0" expanded="true" />
-                <element signature="e#633#2148#0" expanded="false" />
-                <element signature="e#2228#4130#0" expanded="false" />
-                <element signature="e#4792#5766#0" expanded="false" />
+                <element signature="e#507#674#0" expanded="false" />
+                <element signature="e#717#2524#0" expanded="false" />
+                <element signature="e#2604#4672#0" expanded="false" />
+                <element signature="e#4712#5348#0" expanded="false" />
+                <element signature="e#5391#9099#0" expanded="false" />
+                <element signature="e#9142#10230#0" expanded="false" />
+                <element signature="e#10271#10871#0" expanded="false" />
+                <element signature="e#10918#11492#0" expanded="false" />
+                <element signature="e#12734#13080#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -55,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/phonebook.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="100" selection-start-line="49" selection-start-column="100" selection-end-line="49" selection-end-column="100" />
+              <caret line="89" column="33" selection-start-line="89" selection-start-column="33" selection-end-line="89" selection-end-column="33" />
               <folding>
                 <element signature="e#47#61#0" expanded="true" />
               </folding>
@@ -218,6 +223,50 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
+    <configuration default="false" name="Unittest PhonebookTestCase.test_delete_id" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="phonebook" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PhonebookTestCase.py" />
+      <option name="CLASS_NAME" value="PhonebookTestCase" />
+      <option name="METHOD_NAME" value="test_delete_id" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_METHOD" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittest PhonebookTestCase.test_invalid_number" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="phonebook" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PhonebookTestCase.py" />
+      <option name="CLASS_NAME" value="PhonebookTestCase" />
+      <option name="METHOD_NAME" value="test_invalid_number" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_METHOD" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -340,16 +389,20 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in PhonebookTestCase" />
       <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest PhonebookTestCase.test_add_entry" />
       <item index="2" class="java.lang.String" itemvalue="Python.phonebook" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest PhonebookTestCase.test_delete_id" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest PhonebookTestCase.test_invalid_number" />
     </list>
     <recent_temporary>
-      <list size="3">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in PhonebookTestCase" />
         <item index="1" class="java.lang.String" itemvalue="Python.phonebook" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest PhonebookTestCase.test_add_entry" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest PhonebookTestCase.test_invalid_number" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest PhonebookTestCase.test_delete_id" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest PhonebookTestCase.test_add_entry" />
       </list>
     </recent_temporary>
   </component>
@@ -368,7 +421,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1436" height="877" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299363" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -403,7 +456,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -419,7 +472,7 @@
     <entry file="file://$PROJECT_DIR$/phonebook.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="100" selection-start-line="49" selection-start-column="100" selection-end-line="49" selection-end-column="100" />
+          <caret line="89" column="33" selection-start-line="89" selection-start-column="33" selection-end-line="89" selection-end-column="33" />
           <folding>
             <element signature="e#47#61#0" expanded="true" />
           </folding>
@@ -428,13 +481,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PhonebookTestCase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6626506">
-          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.60181">
+          <caret line="286" column="62" selection-start-line="286" selection-start-column="62" selection-end-line="286" selection-end-column="62" />
           <folding>
             <element signature="e#29#38#0" expanded="true" />
-            <element signature="e#633#2148#0" expanded="false" />
-            <element signature="e#2228#4130#0" expanded="false" />
-            <element signature="e#4792#5766#0" expanded="false" />
+            <element signature="e#507#674#0" expanded="false" />
+            <element signature="e#717#2524#0" expanded="false" />
+            <element signature="e#2604#4672#0" expanded="false" />
+            <element signature="e#4712#5348#0" expanded="false" />
+            <element signature="e#5391#9099#0" expanded="false" />
+            <element signature="e#9142#10230#0" expanded="false" />
+            <element signature="e#10271#10871#0" expanded="false" />
+            <element signature="e#10918#11492#0" expanded="false" />
+            <element signature="e#12734#13080#0" expanded="false" />
           </folding>
         </state>
       </provider>
