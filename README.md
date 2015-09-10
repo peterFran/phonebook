@@ -1,10 +1,10 @@
 # phonebook
 ## Setup
 To set up, you'll need to make sure that you have all of the dependencies in requirements.txt installed in your virtualenv. 
-You can do this using the command:
+You can do this using the command from inside the phonebook directory:
 `pip install -r requirements.txt`
 *Make sure this is your python 3 virtualenv pip instance*
-## to start on port 5000 run:
+## to start on port 5000 run this command from inside the phonebook directory:
 `python3 phonebook.py`
 ## To run multiple instances on different ports, you can specify a port like so:
 `python3 phonebook.py 5001`
