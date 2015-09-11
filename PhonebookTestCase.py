@@ -405,10 +405,8 @@ class PhonebookTestCase(unittest.TestCase):
         assert post_result.status_code == 201
         confirmation = json.loads(self.app.get('/list').data.decode('utf-8'))[0]
         assert confirmation['forename'] == 'Peter'
-
         assert confirmation['surname'] == "'Meckiffe'); DROP TABLE phonebook;"
         assert confirmation['telephone'] == '07872124086'
-        print(confirmation['address'])
         assert confirmation['address'] == '"3 Wren Close, Winch"; DROP TABLE phonebook;'
 
 
