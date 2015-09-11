@@ -70,10 +70,10 @@ def add_entry():
 
 def is_dup(forname, surname,tel, addr):
     '''Check if entry already exists, True if yes, False if no'''
-    cur = g.db.execute('select * from phonebook WHERE forename = "{}" \
-    AND surname = "{}" \
-    AND telephone = "{}" \
-    AND address = "{}" order by id desc'.format(forname, surname,tel, addr))
+    cur = g.db.execute('select * from phonebook WHERE forename = ? \
+    AND surname = ? \
+    AND telephone = ? \
+    AND address = ? order by id desc', [forname, surname,tel, addr])
     if len(list(cur.fetchall())) > 0:
         return True
     else:
@@ -87,22 +87,22 @@ def update_entry():
         return make_response("Please provide a valid ID", 400)
     else:
         # Check ID exists in DB
-        cur = g.db.execute('select * from phonebook WHERE id = "{}"'.format(request.form['id']))
+        cur = g.db.execute('select * from phonebook WHERE id = ?',[request.form['id']])
         if len(list(cur.fetchall())) == 0:
             return make_response("Entry does not exist", 404)
 
     # Go through each of the fields checking if update has been requested, and updating each on the DB
     # Current solution is DB message heavy, can be improved.
     if 'address' in request.form:
-        g.db.execute('update phonebook set address = "{}" where id = {}'.format(request.form['address'],request.form['id']))
+        g.db.execute('update phonebook set address = ? where id = ?',[request.form['address'],request.form['id']])
     if 'forename' in request.form:
-        g.db.execute('update phonebook set forename = "{}" where id = {}'.format(request.form['forename'],request.form['id']))
+        g.db.execute('update phonebook set forename = ? where id = ?', [request.form['forename'],request.form['id']])
     if 'surname' in request.form:
-        g.db.execute('update phonebook set surname = "{}" where id = {}'.format(request.form['surname'],request.form['id']))
+        g.db.execute('update phonebook set surname = ? where id = ?', [request.form['surname'],request.form['id']])
     if 'telephone' in request.form:
         if not valid_phone_number(request.form['telephone']):
             return make_response("Please enter valid phone number", 400)
-        g.db.execute('update phonebook set telephone = "{}" where id = {}'.format(request.form['telephone'],request.form['id']))
+        g.db.execute('update phonebook set telephone = ? where id = ?',[request.form['telephone'],request.form['id']])
 
     g.db.commit()
     return make_response("Success", 200)

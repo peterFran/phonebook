@@ -13,10 +13,10 @@ You can do this using the command from inside the phonebook directory:
 1. `/list` - GET: returns all phonebook entries as a JSON object
 
 2. `/add` - POST: adds a new entry to the phone book. Form parameters are:
-    - forename
-    - surname
-    - telephone
-    - address (optional)
+    - forename - mandatory, text
+    - surname - mandatory, text
+    - telephone - mandatory, must be valid telephone number
+    - address - optional, text
 
 3. `/delete/\<id\>` - DELETE: takes an entry id, and deletes that entry if it exists.
 

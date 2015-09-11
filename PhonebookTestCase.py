@@ -393,6 +393,25 @@ class PhonebookTestCase(unittest.TestCase):
         assert delete_assert.status_code == 404
 
 
+    def test_bobby_tables(self):
+        # Check that if we add an entry and then list all entries, we get the same details passed back to us.
+        post_result = self.app.post('/add', data=dict(
+            forename='Peter',
+            surname="'Meckiffe'); DROP TABLE phonebook;",
+            telephone="07872124086",
+            address='"3 Wren Close, Winch"; DROP TABLE phonebook;',
+        ), follow_redirects=True)
+        assert post_result.data.decode('utf-8') == "Success"
+        assert post_result.status_code == 201
+        confirmation = json.loads(self.app.get('/list').data.decode('utf-8'))[0]
+        assert confirmation['forename'] == 'Peter'
+
+        assert confirmation['surname'] == "'Meckiffe'); DROP TABLE phonebook;"
+        assert confirmation['telephone'] == '07872124086'
+        print(confirmation['address'])
+        assert confirmation['address'] == '"3 Wren Close, Winch"; DROP TABLE phonebook;'
+
+
     def test_add_with_invalid_number(self):
         # Test that an invalid phonenumber in an add causes a 400 bad request
         post_result = self.app.post('/add', data=dict(
