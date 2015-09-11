@@ -1,4 +1,4 @@
-# phonebook
+# phonebook - A simple HTTP server
 ## Setup
 To set up, you'll need to make sure that you have all of the dependencies in requirements.txt installed in your virtualenv. 
 You can do this using the command from inside the phonebook directory:
@@ -32,3 +32,5 @@ serves to identify the entry for updating
 your own server on port 5000. Note, this will fail if you do not have a server running.
 
 *NOTE: This is a python3 application, so you'll need a python3 interpreter to make it work. - Embrace, the future.*
+
+WTFPL - © 2015 Peter Meckiffe
