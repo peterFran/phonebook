@@ -138,6 +138,7 @@ def delete_entry(id):
 
 # Accept a port as arg
 if __name__ == '__main__':
+    init_db()
 
     if len(sys.argv) > 1:
         try:
