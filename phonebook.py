@@ -138,7 +138,11 @@ def delete_entry(id):
 
 # Accept a port as arg
 if __name__ == '__main__':
-    init_db()
+    try:
+        db = connect_db()
+        db.execute('select * from phonebook')
+    except sqlite3.OperationalError as a:
+        init_db()
 
     if len(sys.argv) > 1:
         try:
